@@ -1,5 +1,7 @@
 package Shapes;
 
+import java.util.Objects;
+
 public class Rectangle extends Shape {
     private int height;
     private int width;
@@ -25,6 +27,20 @@ public class Rectangle extends Shape {
             }
             System.out.println();
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Rectangle rectangle = (Rectangle) o;
+        return height == rectangle.height && width == rectangle.width;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), height, width);
     }
 
 }
